@@ -26,7 +26,7 @@ body {
 }
 
 #app {
-  max-width: 1000px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -53,7 +53,7 @@ a:hover {
 
 .site-header strong {
   color: #fff;
-  font-size: 17px;
+  font-size: clamp(17px, 1.5vw, 22px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -70,7 +70,7 @@ a:hover {
   display: inline-block;
   padding: 10px 0 12px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: clamp(12px, 0.9vw, 15px);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -110,7 +110,7 @@ a:hover {
 .page {
   position: relative;
   min-height: 65vh;
-  padding: 70px 0;
+  padding: clamp(48px, 5vw, 84px) 0;
 }
 
 .page > p:first-child,
@@ -126,7 +126,7 @@ a:hover {
 .page h1 {
   margin: 14px 0 18px;
   color: #fff;
-  font-size: clamp(42px, 8vw, 76px);
+  font-size: clamp(42px, 7.2vw, 96px);
   letter-spacing: -0.06em;
   line-height: 1;
 }
@@ -134,7 +134,7 @@ a:hover {
 .page > p {
   max-width: 660px;
   color: var(--muted);
-  font-size: 17px;
+  font-size: clamp(17px, 1.5vw, 24px);
   line-height: 1.75;
 }
 
@@ -227,17 +227,13 @@ a:hover {
   font-size: 21px;
 }
 
-#app:has(.home-page) {
-  max-width: 1400px;
-}
-
 #app:has(.home-page) .home-page {
   padding-block: clamp(36px, 5vw, 84px);
 }
 
 .card {
-  margin: 18px 0;
-  padding: 22px;
+  margin: clamp(18px, 2vw, 28px) 0;
+  padding: clamp(22px, 2.5vw, 34px);
   border: 1px solid var(--line);
   border-left: 4px solid var(--red);
   border-radius: 12px;
@@ -254,12 +250,13 @@ a:hover {
 .card h2 {
   margin: 0 0 10px;
   color: #fff;
-  font-size: 21px;
+  font-size: clamp(21px, 2vw, 28px);
 }
 
 .card p {
   margin: 7px 0 0;
   color: var(--muted);
+  font-size: clamp(15px, 1.35vw, 19px);
   line-height: 1.65;
 }
 
@@ -282,13 +279,13 @@ a:hover {
 .skzoo-card-image {
   display: block;
   width: 100%;
-  height: 130px;
+  height: clamp(130px, 18vw, 220px);
   margin: 0 auto 16px;
   object-fit: contain;
 }
 
 .skzoo-banner {
-  max-width: 860px;
+  max-width: 100%;
   margin: 30px auto 42px;
 }
 
@@ -299,7 +296,7 @@ a:hover {
 }
 
 .interior-page {
-  padding-top: 52px;
+  padding-top: clamp(52px, 5vw, 84px);
 }
 
 .page-heading h1 {
@@ -314,7 +311,7 @@ a:hover {
 .page-lede {
   max-width: 620px;
   color: var(--muted);
-  font-size: 17px;
+  font-size: clamp(17px, 1.5vw, 24px);
   line-height: 1.7;
 }
 
@@ -347,6 +344,7 @@ a:hover {
 }
 
 .album-grid {
+  max-width: 1000px;
   padding-top: 18px;
 }
 
@@ -451,19 +449,66 @@ a:hover {
   .site-header {
     align-items: flex-start;
     flex-direction: column;
+    gap: 12px;
   }
 
   .site-header nav {
-    gap: 12px;
+    gap: clamp(10px, 3vw, 16px);
   }
 
   .site-header nav a {
     padding: 8px 0 10px;
     font-size: 11px;
+    letter-spacing: 0.04em;
   }
 
   .page {
     padding: 48px 0;
+  }
+
+  .interior-page {
+    padding-top: 36px;
+  }
+
+  .page-heading h1 {
+    font-size: clamp(40px, 12vw, 60px);
+  }
+
+  .page-lede,
+  .page > p {
+    font-size: clamp(15px, 4vw, 17px);
+  }
+
+  .card {
+    min-width: 0;
+    padding: clamp(16px, 4vw, 22px);
+  }
+
+  .skzoo-banner {
+    margin: clamp(20px, 5vw, 30px) auto clamp(28px, 7vw, 42px);
+  }
+
+  .skzoo-card-image {
+    height: clamp(100px, 30vw, 130px);
+  }
+
+  .era-label {
+    gap: 8px;
+  }
+
+  .era-label h3 {
+    font-size: clamp(18px, 4.5vw, 23px);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .album-grid .album-card h2 {
+    font-size: clamp(16px, 4.2vw, 19px);
+    overflow-wrap: anywhere;
+  }
+
+  .album-grid .album-card p {
+    overflow-wrap: anywhere;
   }
 
 }

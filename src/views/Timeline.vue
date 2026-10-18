@@ -43,7 +43,6 @@ const milestones = [
 <template>
   <section class="page">
     <h1>Historia de Stray Kids</h1>
-    <p>Algunos momentos destacados del recorrido del grupo.</p>
     <article v-for="milestone in milestones" :key="milestone.year + milestone.title" class="card">
       <h2>{{ milestone.year }} — {{ milestone.title }}</h2>
       <p>{{ milestone.description }}</p>
