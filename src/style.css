@@ -1,0 +1,51 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: #f7f5f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  color: #7251a1;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page {
+  padding: 32px 0;
+}
+
+.card {
+  margin: 16px 0;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+}

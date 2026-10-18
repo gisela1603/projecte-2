@@ -1,44 +1,86 @@
-# vue-projecte-2
+# Stray Kids fan guide
 
-This template should help get you started developing with Vue 3 in Vite.
+Web fan no oficial sobre la historia de Stray Kids, sus álbumes y eras, y SKZOO. 
+Está creada con Vue 3, Vue Router y Cloud Firestore.
 
-## Recommended IDE Setup
+## Instalar y ejecutar
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+Necesitas Node.js 22.18 o posterior y npm.
 
 ```sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+cp .env.example .env.local
 npm run dev
 ```
 
-### Compile and Minify for Production
+Completa `.env.local` con la configuración de tu aplicación web de Firebase. En Firebase Console,
+crea Firestore y una colección llamada `albums`. Cada documento debe tener estos campos:
+
+| Campo | Tipo | Ejemplo |
+| --- | --- | --- |
+| `title` | texto | `ATE` |
+| `year` | número | `2024` |
+| `era` | texto | `ATE era` |
+| `description` | texto | `Miniálbum publicado en julio de 2024.` |
+
+La configuración web de Firebase no es una clave privada. No añadas credenciales de cuentas de
+servicio ni claves privadas al repositorio. `.env.local` está excluido por `.gitignore`.
+
+## Componentes propios
+
+- `SiteHeader.vue`: menú de navegación.
+- `AlbumCard.vue`: muestra un álbum.
+- `SkzooCard.vue`: muestra un personaje SKZOO.
+
+`App.vue` es el componente raíz de la aplicación. Las páginas se encuentran en `src/views/`.
+
+### Comunicación mediante props
+
+`AlbumsAndEras.vue` es el padre: obtiene los álbumes de Firestore y pasa cada uno al componente hijo
+`AlbumCard.vue`:
+
+```vue
+<AlbumCard v-for="album in albums" :key="album.id" :album="album" />
+```
+
+`AlbumCard.vue` declara la prop `album` con `defineProps` y usa sus datos para mostrar el título,
+año, era y descripción. El componente hijo no modifica esos datos.
+
+## Rutas
+
+El menú usa `RouterLink` y `App.vue` muestra cada página con `RouterView`.
+
+| Ruta | Página | Contenido |
+| --- | --- | --- |
+| `/` | `Home.vue` | Presentación de la guía. |
+| `/timeline` | `Timeline.vue` | Hitos de la historia del grupo. |
+| `/albums` | `AlbumsAndEras.vue` | Álbumes y eras leídos de Firestore. |
+| `/skzoo` | `SKZOO.vue` | Personajes SKZOO y miembros asociados. |
+
+`firebase.json` configura Firebase Hosting para que funcionen los enlaces directos y las recargas.
+
+## Firestore
+
+La colección es `albums`. La página `AlbumsAndEras.vue` lee los campos `title`, `year`, `era` y
+`description`, y pasa cada documento a `AlbumCard.vue`. La página muestra estados de carga, error y
+colección vacía. `firestore.rules` permite leer esa colección y deniega las escrituras desde la web.
+
+Publica las reglas desde la carpeta del proyecto:
+
+```sh
+npm install --global firebase-tools
+firebase login
+firebase use --add
+firebase deploy --only firestore:rules
+```
+
+## Compilar y publicar
 
 ```sh
 npm run build
+npm run preview
+firebase deploy --only hosting
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Al ejecutar `firebase use --add`, selecciona tu proyecto. Firebase mostrará la URL de la web al
+terminar el despliegue. **URL publicada:** pendiente de configurar el proyecto Firebase y desplegar.
