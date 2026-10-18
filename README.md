@@ -54,8 +54,6 @@ El menú utilitza 'RouterLink' i 'App.vue' mostra cada pàgina amb'RouterView'.
 
 La web utilitza la col·lecció de Firestore `albums`. Cada document correspon a un àlbum i conté els camps `title`, `year`, `era` i `description`. La pàgina «Albums & Eras» llegeix aquestes dades i les mostra agrupades per era; dins de cada era, els àlbums s'ordenen cronològicament. Els documents sense era es mostren al grup «Otras eras».
 
-Captura de les dades: captura-dades-firestore-torrelles.jpg
-
 ## Enllaç a la web publicada
 
 https://straykids-the-archive.web.app
