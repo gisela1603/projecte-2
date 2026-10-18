@@ -25,7 +25,7 @@ const characters = [
         height="768"
       >
     </figure>
-    <div class="grid">
+    <div class="grid uniform-card-grid">
       <SkzooCard
         v-for="character in characters"
         :key="character.name"

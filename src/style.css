@@ -288,6 +288,14 @@ a:hover {
   gap: 14px;
 }
 
+.uniform-card-grid {
+  width: 100%;
+  max-width: 1042px;
+  margin-inline: auto;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 250px));
+  justify-content: center;
+}
+
 .grid .card {
   min-height: 150px;
   border-left-color: var(--pink);

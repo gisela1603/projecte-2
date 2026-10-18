@@ -68,7 +68,7 @@ const members = [
       <div class="section-label">
         <h2 id="members-title">Miembros</h2>
       </div>
-      <div class="grid member-grid">
+      <div class="grid member-grid uniform-card-grid">
         <article v-for="member in members" :key="member.name" class="card member-card">
           <img
             class="member-photo"
