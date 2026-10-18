@@ -345,6 +345,7 @@ a:hover {
 
 .album-grid {
   max-width: 1000px;
+  margin-inline: auto;
   padding-top: 18px;
 }
 
