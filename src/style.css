@@ -214,9 +214,9 @@ a:hover {
 
 .member-photo {
   display: block;
-  width: 100%;
+  width: calc(100% - 20px);
   height: 260px;
-  margin-bottom: 16px;
+  margin: 0 auto 16px;
   border-radius: 8px;
   object-fit: contain;
 }
