@@ -2,19 +2,6 @@
 
 Pàgina web no oficial sobre el recorregut de Stray Kids en que es poden consultar els seus àlbums i eras. També es pot consultar informació sobre SKZOO, els personatges animats dels membres.
 
-Les imatges locals del projecte, incloent-hi la fotografia de grup, les fotografies dels membres, les il·lustracions de SKZOO i el favicon, estan organitzades a `public/images/`. Les fotografies individuals dels membres estan a `public/images/members/`; les atribucions i llicències requerides són:
-
-| Membre | Fotografia / autoria | Font | Llicència |
-| --- | --- | --- | --- |
-| Bang Chan | «Stray Kids' Bang Chan at ICN Airport in July 2025 02», 티비텐 (TV10) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stray_Kids%27_Bang_Chan_at_ICN_Airport_in_July_2025_02.jpg) | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) |
-| Lee Know | «Lee Know at the Incheon Airport, February 25, 2026 (2)», K-POPIT | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lee_Know_at_the_Incheon_Airport,_February_25,_2026_(2).png) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| Changbin | «Changbin of Stray Kids at the 40th Golden Disc Awards, January 10, 2026 (1)», K-POPIT | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Changbin_of_Stray_Kids_at_the_40th_Golden_Disc_Awards,_January_10,_2026_(1).png) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| Hyunjin | «Hyunjin of Stray Kids at the 40th Golden Disc Awards, January 10, 2026 (1)», K-POPIT | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hyunjin_of_Stray_Kids_at_the_40th_Golden_Disc_Awards,_January_10,_2026_(1).png) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| HAN | «Han of Stray Kids, June 20, 2026 (1)», K-POPIT | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Han_of_Stray_Kids,_June_20,_2026_(1).png) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| Felix | «Stray Kids' Felix at the Happiz brand launch, 13 April 2026 (1)», K-POPIT | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stray_Kids%27_Felix_at_the_Happiz_brand_launch,_13_April_2026_(1).png) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| Seungmin | «Seungmin of Stray Kids at the Incheon Airport, February 21, 2026 (1)», K-POPIT | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Seungmin_of_Stray_Kids_at_the_Incheon_Airport,_February_21,_2026_(1).png) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| I.N | «I.N of Stray Kids at the Incheon Airport, February 25, 2026 (1)», K-POPIT | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:I.N_of_Stray_Kids_at_the_Incheon_Airport,_February_25,_2026_(1).png) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-
 ## Instal·lació, execució i publicació
 
 Primerament, cal executar 'npm install' a la terminal des de la carpeta vue-projecte-2 per a instal·lar les dependències que necessita el projecte.
@@ -67,6 +54,7 @@ El menú utilitza 'RouterLink' i 'App.vue' mostra cada pàgina amb'RouterView'.
 
 La web utilitza la col·lecció de Firestore `albums`. Cada document correspon a un àlbum i conté els camps `title`, `year`, `era` i `description`. La pàgina «Albums & Eras» llegeix aquestes dades i les mostra agrupades per era; dins de cada era, els àlbums s'ordenen cronològicament. Els documents sense era es mostren al grup «Otras eras».
 
+Captura de les dades: captura-dades-firestore-torrelles.jpg
 
 ## Enllaç a la web publicada
 
