@@ -1,92 +1,60 @@
-# Stray Kids fan guide
+# Stray Kids: the Archive
 
-Web fan no oficial sobre la historia de Stray Kids, sus álbumes y eras, y SKZOO.
-Está creada con Vue 3, Vue Router y Cloud Firestore.
+Pàgina web no oficial sobre el recorregut de Stray Kids en que es poden consultar els seus àlbums i eras. També es pot consultar informació sobre SKZOO, els personatges animats dels membres.
 
-## Instalar y ejecutar
+## Instal·lació, execució i publicació
 
-Necesitas Node.js 22.18 o posterior y npm.
+Primerament, cal executar 'npm install' a la terminal des de la carpeta vue-projecte-2 per a instal·lar les dependències que necessita el projecte.
 
-```sh
-npm install
-cp .env.example .env.local
-npm run dev
-```
+Llavors cal configurar la connexió amb Firebase. Per a fer això cal afegir una aplicació web al projecte. Durant el procediment s'han de completar el document `.env.local` al VScode amb els valors de configuració que dona el mateix Firebase de l'aplicació a l'apartat de Config.
 
-Completa `.env.local` con la configuración de tu aplicación web de Firebase. En Firebase Console,
-crea Firestore y una colección llamada `albums`. Cada documento debe tener estos campos:
+Per a veure-la llavors a l'ordinador s'executa 'npm run dev'
+La terminal llavors dona un local host i es pot veure obrint l'enllaç.
 
-| Campo | Tipo | Ejemplo |
-| --- | --- | --- |
-| `title` | texto | `ATE` |
-| `year` | número | `2024` |
-| `era` | texto | `ATE era` |
-| `description` | texto | `Miniálbum publicado en julio de 2024.` |
-| `coverUrl` | texto (opcional) | URL de una imagen de portada |
+Posteriorment, per a comprobar que la web es pot publicar s'execute 'npm run build', ordre que prepara una versió optimitzada de la web. Això crea els fitxers per publicar dins la carpeta dist.
 
-Si añades `coverUrl`, la tarjeta mostrará esa portada. Si falta o no se puede cargar, mostrará un
-marcador de portada pendiente.
+Per a inicialitzar el Hosting amb Firebase s'ha de primer iniciar sessió (si no s'ha fet enteriorment) amb 'firebase login' i després incialitzar Firebase amb 'firebase init' on s'ha d'escollir Hosting i Firestore i també s'ha de seleccionar a quin projecte de Firebase es voll pujar la web.
 
-La configuración web de Firebase no es una clave privada. No añadas credenciales de cuentas de
-servicio ni claves privadas al repositorio. `.env.local` está excluido por `.gitignore`.
+Per a publicar-la s'ha d'executar a la terminal 'firebase deploy --only hosting --project straykids-the-archive'
 
-## Componentes propios
+## Components propis
 
-- `SiteHeader.vue`: menú de navegación.
-- `AlbumCard.vue`: muestra un álbum.
-- `SkzooCard.vue`: muestra un personaje SKZOO.
+- 'SiteHeader.vue': menú de navegació.
+- 'AlbumCard.vue': mostra un àlbum.
+- 'SkzooCard.vue': mostra la fitxa d'un personatge SKZOO.
 
-`App.vue` es el componente raíz de la aplicación. Las páginas se encuentran en `src/views/`.
+L'ús del terme Card ve donat de que els diferents apartats, àlbums o personatges, es presenten com si fossin targetes informatives d'aquests.
 
-### Comunicación mediante props
+### Comunicació a través de props
 
-`AlbumsAndEras.vue` es el padre: obtiene los álbumes de Firestore y pasa cada uno al componente hijo
-`AlbumCard.vue`:
+'AlbumsAndEras.vue' és el pare i obté cada àlbum i la seva informació d'una colecció creada a Firestore i passa cada un al component fill 'AlbumCard.vue':
 
 ```vue
 <AlbumCard v-for="album in albums" :key="album.id" :album="album" />
 ```
 
-`AlbumCard.vue` declara la prop `album` con `defineProps` y usa sus datos para mostrar la portada,
-el título, el año, la era y la descripción. El año y la era aparecen juntos. El componente hijo no
-modifica esos datos.
+'AlbumCard.vue' declara el prop 'album' i utilitza les dades determinades dins d'aquest per mostrar el títol, any de publicació i era al qual pertany. El component fill senzillament mostra les dades, no les modifica.
 
-## Rutas
+## Rutes
 
-El menú usa `RouterLink` y `App.vue` muestra cada página con `RouterView`.
+El menú utilitza 'RouterLink' i 'App.vue' mostra cada pàgina amb'RouterView'.
 
-| Ruta | Página | Contenido |
-| --- | --- | --- |
-| `/` | `Home.vue` | Presentación de la guía. |
-| `/timeline` | `Timeline.vue` | Hitos de la historia del grupo. |
-| `/albums` | `AlbumsAndEras.vue` | Álbumes y eras leídos de Firestore. |
-| `/skzoo` | `SKZOO.vue` | Personajes SKZOO y miembros asociados. |
+Ruta | Pàgina | Contingut 
 
-`firebase.json` configura Firebase Hosting para que funcionen los enlaces directos y las recargas.
+/ | Home.vue | Presentació del grup 
+/timeline | Timeline.vue | Esdeveniments en la carrera del grup 
+/albums | AlbumsAndEras.vue | Àlbums que el grup ha tret al llarg de la seva carrera
+/skzoo | SKZOO.vue | Presentació dels personatges de SKZOO
+
+'firebase.json' configura Firebase Hosting per a que funcionin enllaços i recàrregues.
 
 ## Firestore
 
-La colección es `albums`. La página `AlbumsAndEras.vue` lee los campos `title`, `year`, `era`,
-`description` y el campo opcional `coverUrl`, y pasa cada documento a `AlbumCard.vue`. La página
-muestra estados de carga, error y colección vacía. `firestore.rules` permite leer esa colección y
-deniega las escrituras desde la web.
+La web utilitza la colecciño de dades creada a Firestore anomenada 'albums'. Cada document correspon a un àlbum i conté els valors/camps 'title', 'year' i 'era' que la pàgina "Albums & Eras" llavors llegeix i mostra en pantalla organitzades.
 
-Publica las reglas desde la carpeta del proyecto:
 
-```sh
-npm install --global firebase-tools
-firebase login
-firebase use --add
-firebase deploy --only firestore:rules
-```
+## Enllaç a la web publicada
 
-## Compilar y publicar
+https://straykids-the-archive.web.app
 
-```sh
-npm run build
-npm run preview
-firebase deploy --only hosting
-```
-
-Al ejecutar `firebase use --add`, selecciona tu proyecto. Firebase mostrará la URL de la web al
-terminar el despliegue. **URL publicada:** pendiente de configurar el proyecto Firebase y desplegar.
+https://straykids-the-archive.firebaseapp.com
