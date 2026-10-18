@@ -38,7 +38,7 @@ onMounted(async () => {
       <p v-else-if="albums.length === 0" class="status-message">
         Aún no hay álbumes de Stray Kids para mostrar.
       </p>
-      <div v-else class="album-grid">
+      <div v-else class="grid album-grid">
         <AlbumCard v-for="album in albums" :key="album.id" :album="album" />
       </div>
     </section>

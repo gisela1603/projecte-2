@@ -22,6 +22,10 @@ crea Firestore y una colección llamada `albums`. Cada documento debe tener esto
 | `year` | número | `2024` |
 | `era` | texto | `ATE era` |
 | `description` | texto | `Miniálbum publicado en julio de 2024.` |
+| `coverUrl` | texto (opcional) | URL de una imagen de portada |
+
+Si añades `coverUrl`, la tarjeta mostrará esa portada. Si falta o no se puede cargar, mostrará un
+marcador de portada pendiente.
 
 La configuración web de Firebase no es una clave privada. No añadas credenciales de cuentas de
 servicio ni claves privadas al repositorio. `.env.local` está excluido por `.gitignore`.
@@ -43,8 +47,9 @@ servicio ni claves privadas al repositorio. `.env.local` está excluido por `.gi
 <AlbumCard v-for="album in albums" :key="album.id" :album="album" />
 ```
 
-`AlbumCard.vue` declara la prop `album` con `defineProps` y usa sus datos para mostrar el título,
-año, era y descripción. El componente hijo no modifica esos datos.
+`AlbumCard.vue` declara la prop `album` con `defineProps` y usa sus datos para mostrar la portada,
+el título, el año, la era y la descripción. El año y la era aparecen juntos. El componente hijo no
+modifica esos datos.
 
 ## Rutas
 
@@ -61,9 +66,10 @@ El menú usa `RouterLink` y `App.vue` muestra cada página con `RouterView`.
 
 ## Firestore
 
-La colección es `albums`. La página `AlbumsAndEras.vue` lee los campos `title`, `year`, `era` y
-`description`, y pasa cada documento a `AlbumCard.vue`. La página muestra estados de carga, error y
-colección vacía. `firestore.rules` permite leer esa colección y deniega las escrituras desde la web.
+La colección es `albums`. La página `AlbumsAndEras.vue` lee los campos `title`, `year`, `era`,
+`description` y el campo opcional `coverUrl`, y pasa cada documento a `AlbumCard.vue`. La página
+muestra estados de carga, error y colección vacía. `firestore.rules` permite leer esa colección y
+deniega las escrituras desde la web.
 
 Publica las reglas desde la carpeta del proyecto:
 

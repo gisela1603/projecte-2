@@ -4,11 +4,11 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <header class="site-header">
-    <strong>Stray Kids</strong>
+    <strong>Stray Kids: The Archive</strong>
     <nav aria-label="Navegación principal">
       <RouterLink to="/">Inicio</RouterLink>
       <RouterLink to="/timeline">Historia</RouterLink>
-      <RouterLink to="/albums">Álbumes y eras</RouterLink>
+      <RouterLink to="/albums">Albums &amp; Eras</RouterLink>
       <RouterLink to="/skzoo">SKZOO</RouterLink>
     </nav>
   </header>
