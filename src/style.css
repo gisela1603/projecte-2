@@ -242,6 +242,24 @@ a:hover {
   color: #fff;
 }
 
+.album-era-list {
+  display: grid;
+  gap: 30px;
+}
+
+.era-label {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding-top: 0;
+}
+
+.era-label h3 {
+  margin: 0;
+  color: var(--pink);
+  font-size: 17px;
+}
+
 .album-grid {
   padding-top: 18px;
 }
