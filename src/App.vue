@@ -7,6 +7,9 @@ import SiteHeader from './components/SiteHeader.vue'
   <main>
     <RouterView />
   </main>
+  <footer class="site-footer">
+    <p>YOU MAKE STRAY KIDS STAY</p>
+  </footer>
 </template>
 
 <style>
