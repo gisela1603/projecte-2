@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Stray Kids fan guide
 
 Web fan no oficial sobre la historia de Stray Kids, sus álbumes y eras, y SKZOO. 
@@ -84,3 +85,6 @@ firebase deploy --only hosting
 
 Al ejecutar `firebase use --add`, selecciona tu proyecto. Firebase mostrará la URL de la web al
 terminar el despliegue. **URL publicada:** pendiente de configurar el proyecto Firebase y desplegar.
+=======
+# projecte-2
+>>>>>>> 4e26ed75f0e3bfd8d463234b90b285001f6dc7f1
