@@ -6,6 +6,14 @@ defineOptions({ name: 'HomeView' })
   <section class="page home-page">
     <h1>Stray Kids: The Archive</h1>
     <p class="home-tagline">Stray Kids everywhere all around the world</p>
+    <figure class="home-group-photo">
+      <img
+        src="/images/stray-kids-group.jpg"
+        alt="Fotografía de los ocho miembros de Stray Kids"
+        width="1075"
+        height="768"
+      >
+    </figure>
     <p class="home-description">
       Stray Kids es un grupo surcoreano de K-pop formado por Bang Chan, Lee Know, Changbin, Hyunjin,
       Han, Felix, Seungmin e I.N. Debutó en 2018 bajo JYP Entertainment y destaca por participar

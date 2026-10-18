@@ -2,6 +2,8 @@
 
 Pàgina web no oficial sobre el recorregut de Stray Kids en que es poden consultar els seus àlbums i eras. També es pot consultar informació sobre SKZOO, els personatges animats dels membres.
 
+Les imatges locals del projecte, incloent-hi la fotografia de grup, les il·lustracions de SKZOO i el favicon, estan organitzades a `public/images/`.
+
 ## Instal·lació, execució i publicació
 
 Primerament, cal executar 'npm install' a la terminal des de la carpeta vue-projecte-2 per a instal·lar les dependències que necessita el projecte.

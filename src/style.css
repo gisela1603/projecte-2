@@ -156,17 +156,54 @@ a:hover {
   color: #fff;
 }
 
-.home-page > .home-tagline {
-  margin: 0;
-  color: var(--red);
-  font-size: clamp(20px, 2.6vw, 30px);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+.home-page h1 {
+  font-size: clamp(28px, 7.2vw, 96px);
+  text-wrap: balance;
 }
 
-.home-description {
+.home-page > .home-tagline {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  color: var(--red);
+  font-size: clamp(14px, 2.8vw, 38px);
+  font-weight: 700;
+  letter-spacing: clamp(0.01em, 0.4vw, 0.06em);
+  line-height: 1.3;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.home-group-photo {
+  width: 100%;
+  margin: clamp(24px, 3vw, 42px) 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px #0005;
+}
+
+.home-group-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-page > .home-description {
+  width: 100%;
+  max-width: none;
   margin: 24px 0 0;
+  font-size: clamp(15px, 1.5vw, 24px);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+#app:has(.home-page) {
+  max-width: 1400px;
+}
+
+#app:has(.home-page) .home-page {
+  padding-block: clamp(36px, 5vw, 84px);
 }
 
 .card {
@@ -213,6 +250,25 @@ a:hover {
   color: #ffb2bf;
 }
 
+.skzoo-card-image {
+  display: block;
+  width: 100%;
+  height: 130px;
+  margin: 0 auto 16px;
+  object-fit: contain;
+}
+
+.skzoo-banner {
+  max-width: 860px;
+  margin: 30px auto 42px;
+}
+
+.skzoo-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .interior-page {
   padding-top: 52px;
 }
@@ -256,8 +312,9 @@ a:hover {
 
 .era-label h3 {
   margin: 0;
-  color: var(--pink);
-  font-size: 17px;
+  color: var(--red);
+  font-size: 23px;
+  letter-spacing: 0.02em;
 }
 
 .album-grid {
