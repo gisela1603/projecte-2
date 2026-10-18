@@ -15,7 +15,7 @@ Posteriorment, per a comprobar que la web es pot publicar s'execute 'npm run bui
 
 Per a inicialitzar el Hosting amb Firebase s'ha de primer iniciar sessió (si no s'ha fet enteriorment) amb 'firebase login' i després incialitzar Firebase amb 'firebase init' on s'ha d'escollir Hosting i Firestore i també s'ha de seleccionar a quin projecte de Firebase es voll pujar la web.
 
-Si un document té el camp opcional `coverUrl`, la targeta mostra aquesta portada. Si no el té, es mostra la portada del catàleg d'Apple Music per als àlbums reconeguts; en clicar-la, s'obre la fitxa de l'àlbum a Apple Music. Si no es pot carregar cap portada, es mostra un marcador.
+Si un document té el camp opcional 'coverUrl', la targeta mostra aquesta portada. Si no el té, es mostra la portada del catàleg d'Apple Music per als àlbums reconeguts; en clicar-la, s'obre la fitxa de l'àlbum a Apple Music. Si no es pot carregar cap portada, es mostra un marcador.
 
 Per a publicar-la s'ha d'executar a la terminal 'firebase deploy --only hosting --project straykids-the-archive'
 
@@ -32,7 +32,7 @@ L'ús del terme Card ve donat de que els diferents apartats, àlbums o personatg
 'AlbumsAndEras.vue' és el pare i obté cada àlbum i la seva informació d'una colecció creada a Firestore i passa cada un al component fill 'AlbumCard.vue':
 
 ```vue
-<AlbumCard v-for="album in albums" :key="album.id" :album="album" />
+<AlbumCard v-for="album in group.albums" :key="album.id" :album="album" />
 ```
 
 'AlbumCard.vue' declara el prop 'album' i utilitza les dades determinades dins d'aquest per mostrar el títol, any de publicació i era al qual pertany. El component fill senzillament mostra les dades, no les modifica.
