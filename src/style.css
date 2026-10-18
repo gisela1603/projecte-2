@@ -267,6 +267,17 @@ a:hover {
   object-fit: cover;
 }
 
+.album-cover-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.album-cover-link:focus-visible {
+  outline: 2px solid var(--album-accent);
+  outline-offset: -2px;
+}
+
 .album-cover-placeholder {
   display: grid;
   width: 100%;

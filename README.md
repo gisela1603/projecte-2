@@ -24,8 +24,9 @@ crea Firestore y una colección llamada `albums`. Cada documento debe tener esto
 | `description` | texto | `Miniálbum publicado en julio de 2024.` |
 | `coverUrl` | texto (opcional) | URL de una imagen de portada |
 
-Si añades `coverUrl`, la tarjeta mostrará esa portada. Si falta o no se puede cargar, mostrará un
-marcador de portada pendiente.
+Si añades `coverUrl`, la tarjeta mostrará esa portada. Si falta, se mostrará una portada del
+catálogo de Apple Music para los álbumes reconocidos; al pulsarla, se abrirá su ficha en Apple Music.
+Si no se puede cargar ninguna portada, se mostrará un marcador.
 
 La configuración web de Firebase no es una clave privada. No añadas credenciales de cuentas de
 servicio ni claves privadas al repositorio. `.env.local` está excluido por `.gitignore`.
