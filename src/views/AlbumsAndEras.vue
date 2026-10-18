@@ -62,14 +62,11 @@ onMounted(async () => {
       </p>
     </section>
 
-    <section class="album-section" aria-labelledby="album-list-title">
-      <div class="section-label">
-        <h2 id="album-list-title">Álbumes de Stray Kids</h2>
-      </div>
+    <section class="album-section" aria-label="Álbumes">
       <p v-if="loading" class="status-message" role="status">Cargando la discografía de Stray Kids…</p>
       <p v-else-if="error" class="status-message status-error" role="alert">{{ error }}</p>
       <p v-else-if="albums.length === 0" class="status-message">
-        Aún no hay álbumes de Stray Kids para mostrar.
+        Aún no hay álbumes para mostrar.
       </p>
       <div v-else class="album-era-list">
         <section v-for="group in albumsByEra" :key="group.era" class="album-era">

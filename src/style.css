@@ -198,6 +198,35 @@ a:hover {
   text-wrap: pretty;
 }
 
+.member-section {
+  margin-top: clamp(42px, 6vw, 80px);
+}
+
+.member-section > .section-label {
+  margin-bottom: 20px;
+}
+
+.member-grid .member-card {
+  min-width: 0;
+  margin: 0;
+  padding: 14px;
+}
+
+.member-photo {
+  display: block;
+  width: 100%;
+  height: 260px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.member-card h3 {
+  margin: 0 0 8px;
+  color: #ffb2bf;
+  font-size: 21px;
+}
+
 #app:has(.home-page) {
   max-width: 1400px;
 }

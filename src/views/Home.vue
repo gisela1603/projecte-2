@@ -1,5 +1,48 @@
 <script setup>
 defineOptions({ name: 'HomeView' })
+
+const members = [
+  {
+    name: 'Bang Chan',
+    image: '/images/members/bang-chan.jpg',
+    height: 1037,
+  },
+  {
+    name: 'Lee Know',
+    image: '/images/members/lee-know.png',
+    height: 1314,
+  },
+  {
+    name: 'Changbin',
+    image: '/images/members/changbin.png',
+    height: 1394,
+  },
+  {
+    name: 'Hyunjin',
+    image: '/images/members/hyunjin.png',
+    height: 1442,
+  },
+  {
+    name: 'HAN',
+    image: '/images/members/han.png',
+    height: 1392,
+  },
+  {
+    name: 'Felix',
+    image: '/images/members/felix.png',
+    height: 1411,
+  },
+  {
+    name: 'Seungmin',
+    image: '/images/members/seungmin.png',
+    height: 1304,
+  },
+  {
+    name: 'I.N',
+    image: '/images/members/i-n.png',
+    height: 1303,
+  },
+]
 </script>
 
 <template>
@@ -21,5 +64,23 @@ defineOptions({ name: 'HomeView' })
       3RACHA, el equipo formado por Bang Chan, Changbin y Han. Su música mezcla géneros como el
       hip-hop, la electrónica y el pop, y sus seguidores son conocidos como STAY.
     </p>
+    <section class="member-section" aria-labelledby="members-title">
+      <div class="section-label">
+        <h2 id="members-title">Miembros</h2>
+      </div>
+      <div class="grid member-grid">
+        <article v-for="member in members" :key="member.name" class="card member-card">
+          <img
+            class="member-photo"
+            :src="member.image"
+            :alt="`Fotografía de ${member.name}, miembro de Stray Kids`"
+            width="960"
+            :height="member.height"
+            loading="lazy"
+          >
+          <h3>{{ member.name }}</h3>
+        </article>
+      </div>
+    </section>
   </section>
 </template>
